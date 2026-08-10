@@ -1,1 +1,691 @@
+/* =========================================
+   THE INVESTIGATION
+   V1 STYLES
+========================================= */
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #000;
+    color: #ddd;
+}
+
+
+/* =========================================
+   BOOT SCREEN
+========================================= */
+
+#bootScreen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: #050505;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bootContent {
+    width: min(420px, 80%);
+
+    text-align: center;
+}
+
+.bootLogo {
+    font-size: 24px;
+
+    letter-spacing: 5px;
+
+    color: #ddd;
+
+    margin-bottom: 8px;
+}
+
+.bootVersion {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #555;
+
+    margin-bottom: 40px;
+}
+
+.bootText {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+
+    margin-bottom: 10px;
+}
+
+.loadingBar {
+    width: 100%;
+    height: 5px;
+
+    background: #191919;
+
+    border: 1px solid #292929;
+}
+
+#loadingProgress {
+    width: 0%;
+    height: 100%;
+
+    background: #aaa;
+
+    transition: width 0.2s linear;
+}
+
+#bootStatus {
+    margin-top: 10px;
+
+    min-height: 15px;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    color: #555;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+#desktop {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #20262a 0%,
+            #15191c 40%,
+            #0b0d0f 100%
+        );
+
+    user-select: none;
+}
+
+
+/* Subtle screen effect */
+
+#desktop::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.015),
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+}
+
+
+/* =========================================
+   DESKTOP ICONS
+========================================= */
+
+.desktopIcon {
+    width: 82px;
+
+    min-height: 72px;
+
+    margin: 12px;
+
+    padding: 6px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    color: #ccc;
+
+    font-size: 12px;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+}
+
+.desktopIcon:hover {
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.desktopIcon:active {
+    background: rgba(255,255,255,0.12);
+}
+
+.icon {
+    font-size: 31px;
+
+    line-height: 1;
+}
+
+.iconName {
+    text-shadow:
+        0 1px 2px #000;
+}
+
+
+/* =========================================
+   TASKBAR
+========================================= */
+
+#taskbar {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 46px;
+
+    z-index: 500;
+
+    display: flex;
+
+    align-items: center;
+
+    background: rgba(8,8,8,0.95);
+
+    border-top: 1px solid #333;
+
+    box-shadow:
+        0 -4px 20px rgba(0,0,0,0.3);
+}
+
+#startButton {
+    width: 52px;
+    height: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+#startButton:hover {
+    background: #1c1c1c;
+
+    color: white;
+}
+
+#taskbarApps {
+    display: flex;
+
+    gap: 5px;
+
+    margin-left: 8px;
+}
+
+.taskbarApp {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.taskbarApp:hover {
+    background: #222;
+}
+
+#clock {
+    margin-left: auto;
+
+    padding: 0 16px;
+
+    color: #888;
+
+    font-family: monospace;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   WINDOWS
+========================================= */
+
+.window {
+    position: absolute;
+
+    display: none;
+
+    width: 430px;
+    min-height: 280px;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 100;
+
+    background: #111;
+
+    border: 1px solid #444;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.7);
+}
+
+.window.active {
+    display: block;
+}
+
+
+/* Window header */
+
+.windowHeader {
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-left: 12px;
+
+    background: #1c1c1c;
+
+    border-bottom: 1px solid #333;
+
+    color: #ccc;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.closeButton {
+    width: 38px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    background: #3a1717;
+
+    color: white;
+}
+
+
+/* Window content */
+
+.windowContent {
+    padding: 16px;
+
+    min-height: 235px;
+
+    background: #111;
+
+    overflow: auto;
+}
+
+
+/* =========================================
+   FILES
+========================================= */
+
+.fileItem {
+    padding: 10px;
+
+    margin-bottom: 5px;
+
+    background: #181818;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.fileItem:hover {
+    background: #222;
+
+    border-color: #333;
+}
+
+
+/* =========================================
+   EMAIL
+========================================= */
+
+.email {
+    padding: 14px;
+
+    background: #181818;
+
+    border: 1px solid #292929;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.emailSubject {
+    display: block;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   NOTES
+========================================= */
+
+.note {
+    min-height: 180px;
+
+    padding: 20px;
+
+    background: #202018;
+
+    color: #c9c9a5;
+
+    font-family: Georgia, serif;
+
+    line-height: 1.6;
+
+    transform: rotate(-0.2deg);
+}
+
+
+/* =========================================
+   CCTV
+========================================= */
+
+.cctvScreen {
+    position: relative;
+
+    width: 100%;
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #121719,
+            #121719 2px,
+            #0b0e0f 2px,
+            #0b0e0f 4px
+        );
+
+    border: 1px solid #333;
+
+    overflow: hidden;
+}
+
+.cameraLabel {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    color: #aaa;
+
+    font-family: monospace;
+
+    font-size: 11px;
+}
+
+.cctvText {
+    color: #555;
+
+    font-family: monospace;
+
+    font-size: 13px;
+}
+
+.cctvTime {
+    position: absolute;
+
+    bottom: 10px;
+    right: 10px;
+
+    color: #888;
+
+    font-family: monospace;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   BROWSER
+========================================= */
+
+.browserBar {
+    padding: 9px;
+
+    margin-bottom: 12px;
+
+    background: #1b1b1b;
+
+    border: 1px solid #333;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 12px;
+}
+
+.browserPage {
+    padding: 20px;
+
+    color: #aaa;
+
+    line-height: 1.6;
+}
+
+.browserPage h2 {
+    margin-bottom: 15px;
+
+    color: #ddd;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+#searchInput {
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #333;
+
+    outline: none;
+
+    background: #181818;
+
+    color: #ddd;
+}
+
+#searchInput:focus {
+    border-color: #555;
+}
+
+#searchResults {
+    padding: 12px;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   START MENU
+========================================= */
+
+#startMenu {
+    position: absolute;
+
+    left: 6px;
+    bottom: 52px;
+
+    width: 230px;
+
+    z-index: 800;
+
+    display: none;
+
+    padding: 8px;
+
+    background: rgba(12,12,12,0.97);
+
+    border: 1px solid #444;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.6);
+}
+
+#startMenu.open {
+    display: block;
+}
+
+.startTitle {
+    padding: 12px;
+
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid #333;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.startItem {
+    padding: 11px;
+
+    color: #bbb;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.startItem:hover {
+    background: #222;
+
+    color: white;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .window {
+        width: 92%;
+
+        max-height: 70vh;
+    }
+
+    .desktopIcon {
+        margin: 7px;
+
+        width: 70px;
+    }
+
+    .icon {
+        font-size: 27px;
+    }
+
+    #taskbar {
+        height: 44px;
+    }
+
+}
