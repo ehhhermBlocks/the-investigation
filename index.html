@@ -1,1 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>THE INVESTIGATION</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BOOT SCREEN
+    ========================== -->
+
+    <div id="bootScreen">
+
+        <div class="bootContent">
+
+            <div class="bootLogo">
+                MERCER SYSTEMS
+            </div>
+
+            <div class="bootVersion">
+                PERSONAL COMPUTER SYSTEM
+            </div>
+
+            <div class="bootText">
+                SYSTEM STARTUP
+            </div>
+
+            <div class="loadingBar">
+                <div id="loadingProgress"></div>
+            </div>
+
+            <div id="bootStatus">
+                Initializing...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DESKTOP
+    ========================== -->
+
+    <div id="desktop">
+
+        <!-- Desktop icons -->
+
+        <div class="desktopIcon" data-app="files">
+            <div class="icon">📁</div>
+            <div class="iconName">Files</div>
+        </div>
+
+        <div class="desktopIcon" data-app="mail">
+            <div class="icon">📧</div>
+            <div class="iconName">Mail</div>
+        </div>
+
+        <div class="desktopIcon" data-app="notes">
+            <div class="icon">📝</div>
+            <div class="iconName">Notes</div>
+        </div>
+
+        <div class="desktopIcon" data-app="cctv">
+            <div class="icon">📹</div>
+            <div class="iconName">CCTV</div>
+        </div>
+
+        <div class="desktopIcon" data-app="browser">
+            <div class="icon">🌐</div>
+            <div class="iconName">Browser</div>
+        </div>
+
+        <div class="desktopIcon" data-app="search">
+            <div class="icon">🔍</div>
+            <div class="iconName">Search</div>
+        </div>
+
+        <div class="desktopIcon" data-app="trash">
+            <div class="icon">🗑️</div>
+            <div class="iconName">Trash</div>
+        </div>
+
+
+        <!-- =========================
+             TASKBAR
+        ========================== -->
+
+        <div id="taskbar">
+
+            <button id="startButton">
+                ◉
+            </button>
+
+            <div id="taskbarApps">
+
+                <button class="taskbarApp" data-app="files">
+                    📁
+                </button>
+
+                <button class="taskbarApp" data-app="mail">
+                    📧
+                </button>
+
+                <button class="taskbarApp" data-app="notes">
+                    📝
+                </button>
+
+            </div>
+
+            <div id="clock">
+                03:17
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FILES WINDOW
+        ========================== -->
+
+        <div class="window" id="filesWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    📁 Files
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <div class="fileItem">
+                    📄 readme.txt
+                </div>
+
+                <div class="fileItem">
+                    📁 Personal
+                </div>
+
+                <div class="fileItem">
+                    📁 Work
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             MAIL WINDOW
+        ========================== -->
+
+        <div class="window" id="mailWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    📧 Mail
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <div class="email">
+                    <strong>Daniel Mercer</strong>
+
+                    <br>
+
+                    <span class="emailSubject">
+                        Basement
+                    </span>
+
+                    <p>
+                        I'm going to check the basement tonight.
+                    </p>
+
+                    <p>
+                        I keep hearing the same noise.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             NOTES WINDOW
+        ========================== -->
+
+        <div class="window" id="notesWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    📝 Notes
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <div class="note">
+
+                    <p>
+                        The basement is not empty.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Don't trust the camera.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CCTV WINDOW
+        ========================== -->
+
+        <div class="window" id="cctvWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    📹 CCTV
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <div class="cctvScreen">
+
+                    <div class="cameraLabel">
+                        CAMERA 04
+                    </div>
+
+                    <div class="cctvText">
+                        SIGNAL ACTIVE
+                    </div>
+
+                    <div class="cctvTime">
+                        03:17:42
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             BROWSER WINDOW
+        ========================== -->
+
+        <div class="window" id="browserWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    🌐 Browser
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <div class="browserBar">
+                    mercer.local
+                </div>
+
+                <div class="browserPage">
+
+                    <h2>
+                        MERCER SYSTEMS
+                    </h2>
+
+                    <p>
+                        Internal network unavailable.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SEARCH WINDOW
+        ========================== -->
+
+        <div class="window" id="searchWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    🔍 Search
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search computer..."
+                >
+
+                <div id="searchResults">
+                    No search performed.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             TRASH WINDOW
+        ========================== -->
+
+        <div class="window" id="trashWindow">
+
+            <div class="windowHeader">
+
+                <span>
+                    🗑️ Trash
+                </span>
+
+                <button class="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="windowContent">
+
+                <div class="fileItem">
+                    📄 deleted_log.txt
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             START MENU
+        ========================== -->
+
+        <div id="startMenu">
+
+            <div class="startTitle">
+                MERCER SYSTEMS
+            </div>
+
+            <div class="startItem" data-app="files">
+                📁 Files
+            </div>
+
+            <div class="startItem" data-app="mail">
+                📧 Mail
+            </div>
+
+            <div class="startItem" data-app="notes">
+                📝 Notes
+            </div>
+
+            <div class="startItem" data-app="cctv">
+                📹 CCTV
+            </div>
+
+            <div class="startItem" data-app="browser">
+                🌐 Browser
+            </div>
+
+            <div class="startItem" data-app="search">
+                🔍 Search
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
