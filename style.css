@@ -689,3 +689,25 @@ body {
     }
 
 }
+
+
+/* =========================================
+   WINDOW SYSTEM
+========================================= */
+
+.window.minimized {
+    display: none;
+}
+
+.taskbarApp.running {
+    background: #292929;
+    box-shadow: inset 0 -2px 0 #888;
+}
+
+.windowHeader {
+    cursor: grab;
+}
+
+.windowHeader:active {
+    cursor: grabbing;
+}
